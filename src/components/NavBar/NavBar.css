@@ -8,7 +8,8 @@
   }
   .ImgNavBar{
       width: 30%;
-      
+      filter: brightness(1.1);
+      mix-blend-mode: multiply;
   }
   .Categories {
     display: flex;
@@ -29,7 +30,7 @@
     border-radius: 8px;
     flex: none;
     display: flex;
-    order: 1;
+    
     align-self: center;
     flex-grow: 0;
     justify-content: center;
