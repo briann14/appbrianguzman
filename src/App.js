@@ -1,3 +1,4 @@
+import { useState} from 'react'
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -6,7 +7,7 @@ function App() {
   <div className = "app">
     
   <NavBar title = "PhoneStore"/>
-  <ItemListContainer greeting = "Hola Mundo"/>
+  <ItemListContainer/>
   
   </div>
   )
