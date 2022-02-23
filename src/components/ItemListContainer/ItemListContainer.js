@@ -1,36 +1,34 @@
-import {  useState } from 'react'
+import { useEffect, useState } from 'react';
 
 import ItemCount from "../ItemCount/ItemCount"
 
-
-
+import { traerProductos} from "../../mock/productos"
+import ItemList from '../ItemList/ItemList';
 
 
 const ItemListContainer = ({greeting = 'CARRITO'  })=> {
     const [productos, setProductos] = useState([])
-
+    const [cargando, setCargando] = useState(true);
     
-    
-    
-    const handleOnAdd = (cantidad) => {
-        console.log(`Se agregaron ${cantidad} productos`)
-    }
-
-    console.log(productos)
+    useEffect(() => {
+        traerProductos
+            .then((res) => {
+                setProductos(res);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .finally(() => {
+                setCargando(false);
+            });
+    }, []);
 
     return (
         <div className="ItemListContainer">
-            <h1>{greeting}</h1>
-            <ItemCount stock={10} initial={2} onAdd={handleOnAdd}/>
-            <ul>
-                {productos.map(producto => {
-                    return <li key={producto.id}>{producto.name}</li>
-                })}
-                
-            </ul>
-        </div>
-    )    
     
+            <h1>{greeting}</h1>
+            <ItemList productos={productos}/>
+        </div>
+    )  
 }
-
 export default ItemListContainer
