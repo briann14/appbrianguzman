@@ -26,10 +26,19 @@ export const productos = [
         img: 'https://images.fravega.com/f500/99255d47d5bace0b2f37460b589952a6.jpg',
         category: 'celulares',
     },
+   
 ];
+
 
 export const traerProductos = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(productos);
     }, 4000);
 });
+export const productoUno = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(productos[0])
+        }, 1000)
+    })
+}

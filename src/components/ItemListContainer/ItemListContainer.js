@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import ItemCount from "../ItemCount/ItemCount"
+import { productos } from '../../mock/productos';
 
 import { traerProductos} from "../../mock/productos"
 import ItemList from '../ItemList/ItemList';
