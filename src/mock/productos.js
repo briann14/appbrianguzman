@@ -35,10 +35,11 @@ export const traerProductos = new Promise((resolve, reject) => {
         resolve(productos);
     }, 4000);
 });
-export const productoUno = () => {
+export const productoUno = (id) => {
     return new Promise((resolve) => {
+        const prod = productos.find(p => p.id === parseInt(id))
         setTimeout(() => {
-            resolve(productos[0])
+            resolve(prod)
         }, 1000)
     })
 }

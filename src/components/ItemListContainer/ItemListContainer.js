@@ -6,7 +6,7 @@ import { traerProductos} from "../../mock/productos"
 import ItemList from '../ItemList/ItemList';
 
 
-const ItemListContainer = ({greeting = 'CARRITO'  })=> {
+const ItemListContainer = ({routing  })=> {
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true);
     
@@ -26,7 +26,7 @@ const ItemListContainer = ({greeting = 'CARRITO'  })=> {
     return (
         <div className="ItemListContainer">
     
-            <h1>{greeting}</h1>
+            
             <ItemList productos={productos}/>
         </div>
     )  
