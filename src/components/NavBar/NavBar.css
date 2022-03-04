@@ -6,23 +6,24 @@
     height: 60px;
     background: #4ccb35
   }
-  .ImgNavBar{
-      width: 30%;
+  .ImgNav{
+      width: 10%;
       filter: brightness(1.1);
       mix-blend-mode: multiply;
   }
-  .Categories {
+  .cajasBotones{
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
   
-  .Option {
+  .Botones {
     /* color: #8C30F5; */
     text-decoration: none;
     border-radius: 25;
     
     /* TODO */
+    margin: 2rem;
     width: auto;
     padding: 12px;
     font-size: 8px;

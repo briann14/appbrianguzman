@@ -11,6 +11,12 @@ const ItemDetail = ({ producto }) => {
             </picture>
             <section>
                 
+            <p className="Info">
+                    Categoria: {producto?.category}
+                </p>
+                <p className="Info">
+                    Descripción: {producto?.description}
+                </p>
                 <p className="Info">
                     Precio: {producto?.price}
                 </p>

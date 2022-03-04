@@ -1,9 +1,10 @@
+import './CartWidget.css'
 
-const CartWidget = ({margin = 2 , borderRadius = '2rem' , width = '40px' , numero = 1}) =>{
+const CartWidget = ({margin = 11 ,  width = 40 , numero = 1}) =>{
     
     return(
-        <div>
-   <img  src = {'./img/carrito.png'}  style ={{margin ,width, borderRadius}} alt = 'logo'/>
+        <div className="carrito">
+   <img  src = {'../img/carrito.png'}  style ={{margin ,width}} alt = 'logo'/>
        <span>{numero}</span>
         </div>
         
