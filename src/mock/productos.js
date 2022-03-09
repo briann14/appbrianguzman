@@ -1,4 +1,4 @@
-export const productos = [
+export const products = [
     {
         id: 1,
         name: 'Samsung S20 FE',
@@ -40,23 +40,22 @@ const categorias = [
 ]
 
 
-export const traerProductos = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(productos);
-    }, 4000);
-});
-export const productoUno = (id) => {
-    return new Promise((resolve) => {
-        const prod = productos.find(p => p.id === parseInt(id))
+export const misProductos = (categoryId) => {
+    return new Promise((resolve, reject) => {
+        const prodFiltrados = products.filter(
+            (prod) => prod.category === categoryId
+        );
         setTimeout(() => {
-            resolve(prod)
-        }, 1000)
-    })
-}
-export const getCategorias = () => {
-    return new Promise((resolve) => {
+            categoryId ? resolve(prodFiltrados) : resolve(products);
+        }, 1000);
+    });
+};
+
+export const miProducto = (itemId) => {
+    return new Promise((resolve, reject) => {
+        const item = products.find((prod) => prod.id === parseInt(itemId));
         setTimeout(() => {
-            resolve(categorias)
-        }, 1000)
-    })
-}
+            resolve(item);
+        }, 1000);
+    });
+};

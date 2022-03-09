@@ -1,24 +1,24 @@
-const ItemDetail = ({ producto }) => {
+const ItemDetail = ({ product }) => {
     return (
         <article className="CardItem">
             <header className="Header">
                 <h2 className="ItemHeader">
-                    {producto?.name}
+                    {product?.name}
                 </h2>
             </header>
             <picture>
-                <img src={producto?.img} alt={producto?.name} className="ItemImg"/>
+                <img src={product?.img} alt={product?.name} className="ItemImg"/>
             </picture>
             <section>
                 
             <p className="Info">
-                    Categoria: {producto?.category}
+                    Categoria: {product?.category}
                 </p>
                 <p className="Info">
-                    Descripción: {producto?.description}
+                    Descripción: {product?.description}
                 </p>
                 <p className="Info">
-                    Precio: {producto?.price}
+                    Precio: {product?.price}
                 </p>
             </section>           
             <footer className='ItemFooter'>

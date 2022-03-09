@@ -1,30 +1,34 @@
 
-import { useState, useEffect } from 'react'
-import ItemDetail from '../ItemDetail/ItemDetail'
-import { productoUno }  from "../../mock/productos"
-import {useParams} from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { miProducto} from '../../mock/productos';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState()
-    const {productoId} = useParams ()
+    const [product, setProduct] = useState({});
+    const [loading, setLoading] = useState(true);
+    const { itemId } = useParams();
+
     useEffect(() => {
-        productoUno(productoId).then(item => {
-            setProducto(item)
-        }).catch(err  => {
-            console.log(err)
-        })
-
-        return (() => {
-            setProducto()
-        })
-
-    }, [])
-
+        miProducto(itemId)
+            .then((res) => {
+                setProduct(res);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+        return () => {
+            setProduct([]);
+            setLoading(true);
+        };
+    }, [itemId]);
 
     return (
-        <div >
-            <ItemDetail  producto={producto}/>
-        </div>
-    )    
-}
-export default ItemDetailContainer
+        <div>{loading ? <h1>Cargando</h1> : <ItemDetail product={product} />}</div>
+    );
+};
+
+export default ItemDetailContainer;

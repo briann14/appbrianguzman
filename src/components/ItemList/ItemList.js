@@ -2,12 +2,12 @@ import './ItemList.css'
 import Item from "../Item/Item"
 import ItemDetail from '../ItemDetail/ItemDetail'
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ products }) => {
 
     return (
         <div>
-        {productos.map((producto) => (
-            <Item {...producto} key={producto.id} producto ={producto} />
+        {products.map((product) => (
+            <Item {...product} key={product.id} product ={product} />
         ))}
         </div>
     )

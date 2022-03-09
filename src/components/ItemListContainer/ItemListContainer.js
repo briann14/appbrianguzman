@@ -1,34 +1,36 @@
 import { useEffect, useState } from 'react';
-
-import { productos } from '../../mock/productos';
-
-import { traerProductos} from "../../mock/productos"
+import { useParams } from 'react-router-dom';
+import { misProductos} from '../../mock/productos';
 import ItemList from '../ItemList/ItemList';
 
+const ItemListContainer = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const { categoryId } = useParams();
 
-const ItemListContainer = ({routing  })=> {
-    const [productos, setProductos] = useState([])
-    const [cargando, setCargando] = useState(true);
-    
     useEffect(() => {
-        traerProductos
+        misProductos(categoryId)
             .then((res) => {
-                setProductos(res);
+                setProducts(res);
             })
             .catch((error) => {
-                console.log(error);
+                console.error(error);
             })
             .finally(() => {
-                setCargando(false);
+                setLoading(false);
             });
-    }, []);
+
+        return () => {
+            setProducts([]);
+            setLoading(true);
+        };
+    }, [categoryId]);
 
     return (
-        <div className="ItemListContainer">
-    
-            
-            <ItemList productos={productos}/>
+        <div>
+        {loading ? ( <h1>Cargando</h1>) : ( <ItemList products={products} /> )}
         </div>
-    )  
-}
-export default ItemListContainer
+    );
+};
+
+export default ItemListContainer;
