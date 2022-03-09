@@ -1,4 +1,11 @@
 .carrito{
     display: flex;
     align-items: center;
+
+}
+.imagenCart{
+    width : 40px
+}
+.contador{
+    font-size: 1.5rem;
 }
