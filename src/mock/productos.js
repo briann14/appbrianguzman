@@ -7,7 +7,7 @@ export const products = [
         //img: './img/camisa.jpg',
         img: 'https://www.techinn.com/f/13828/138281761/samsung-smartphone-galaxy-s20fe-2021-6gb-128gb-6.5-dual-sim.jpg',
         category: 'celulares',
-        description: 'Memoria : 8gb de ram - Almacenamiento : 128gb '
+        description: 'Memoria 8gb de ram - Almacenamiento : 128gb '
     },
     {
         id: 2,
