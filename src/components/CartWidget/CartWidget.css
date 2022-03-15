@@ -8,4 +8,8 @@
 }
 .contador{
     font-size: 1.5rem;
+    text-decoration: none;
+}
+.link{
+    text-decoration: none;
 }

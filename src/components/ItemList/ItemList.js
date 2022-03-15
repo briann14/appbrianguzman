@@ -1,15 +1,13 @@
 import './ItemList.css'
 import Item from "../Item/Item"
-import ItemDetail from '../ItemDetail/ItemDetail'
+import React from 'react'
 
 const ItemList = ({ products }) => {
 
     return (
-        <div>
-        {products.map((product) => (
-            <Item {...product} key={product.id} product ={product} />
-        ))}
-        </div>
+        <ul className="ListGroup">
+            {products.map(product => <Item key={product.id} product={product}/>)}
+        </ul>
     )
 }
 

@@ -1,33 +1,43 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { miProducto} from '../../mock/productos';
+import { getProduct } from '../../mock/productos';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({});
-    const [loading, setLoading] = useState(true);
-    const { itemId } = useParams();
+    const [product, setProduct] = useState()
+    const [loading, setLoading] = useState(true)
+
+    const { productId } = useParams()
+    
 
     useEffect(() => {
-        miProducto(itemId)
-            .then((res) => {
-                setProduct(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-        return () => {
-            setProduct([]);
-            setLoading(true);
-        };
-    }, [itemId]);
+        getProduct(productId).then(item => {
+            setProduct(item)          
+        }).catch(err  => {
+            console.log(err)
+        }).finally(() => {
+            setLoading(false)
+        })
+
+        return (() => {
+            setProduct()
+        })
+
+    }, [productId])
+
+
 
     return (
-        <div>{loading ? <h1>Cargando</h1> : <ItemDetail product={product} />}</div>
+        <div className="ItemDetailContainer" >
+        { 
+            loading ? 
+                <h1>Cargando...</h1> :
+            product ? 
+                <ItemDetail  {...product} /> :
+                <h1>El producto no existe</h1> 
+        }
+    </div>
     );
 };
 

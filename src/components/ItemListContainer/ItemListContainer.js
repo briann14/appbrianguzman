@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { misProductos} from '../../mock/productos';
+import { getProducts} from '../../mock/productos';
 import ItemList from '../ItemList/ItemList';
+
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -9,22 +10,20 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     useEffect(() => {
-        misProductos(categoryId)
-            .then((res) => {
-                setProducts(res);
-            })
-            .catch((error) => {
-                console.error(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        
+        setLoading(true)
+         getProducts(categoryId).then(item => {
+            setProducts(item)
+        }).catch(err  => {
+            console.log(err)
+        }).finally(() => {
+            setLoading(false)
+        })
 
-        return () => {
-            setProducts([]);
-            setLoading(true);
-        };
-    }, [categoryId]);
+        return (() => {
+            setProducts()
+        })          
+    }, [categoryId]) 
 
     return (
         <div>

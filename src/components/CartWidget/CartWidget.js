@@ -1,18 +1,28 @@
-import { Link } from "react-router-dom";
-import { products } from '../../mock/productos';
-import  { useContext } from 'react';
+
+import React, { useContext } from 'react';
 import CartContext  from '../../context/CartContext';
 import './CartWidget.css'
+import { Link } from "react-router-dom";
 
 
-const CartWidget = () => {
-    const { cart } = useContext(CartContext);
+const CartWidget = ({margin = 2 ,  width = 40 }) => {
+
+    const { getQuantity } = useContext(CartContext)
+
     return(
-        <div className="carrito">
-   <img  src = {'../img/carrito.png'}  className= "imagenCart" alt = 'logo'/>
-   {cart.map((prod) => (
-      <span key={prod.id}className="contador">{prod.cantidad}</span>
-    ))}
-  </div>
-    )}
-export default CartWidget
+        
+        <Link to={'cart'} className = 'link' >
+            <div className="carrito">
+        <img  src = {'../img/carrito.png'}  style ={{margin ,width}} alt = 'logo'/>
+        <span className='contador'>{getQuantity()}</span>
+        </div>
+        </Link>
+
+        
+    );
+    }
+export default CartWidget;
+
+
+    
+   
