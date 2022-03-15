@@ -1,29 +1,37 @@
+import { Firestore, QuerySnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts} from '../../mock/productos';
+
 import ItemList from '../ItemList/ItemList';
 
-
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import { firestoreDb } from '../../services/firebase/firebase'
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
 
     useEffect(() => {
-        
         setLoading(true)
-         getProducts(categoryId).then(item => {
-            setProducts(item)
-        }).catch(err  => {
-            console.log(err)
-        }).finally(() => {
-            setLoading(false)
+        const collectionRef = categoryId ?
+        query(collection(firestoreDb, 'products'), where('category', '==', categoryId)) :
+        collection(firestoreDb, 'products')
+
+    getDocs(collectionRef).then(response => {
+        const products = response.docs.map(doc => {
+            return { id: doc.id, ...doc.data() }
         })
 
-        return (() => {
-            setProducts()
-        })          
-    }, [categoryId]) 
+        setProducts(products)
+    }).finally(() => {
+        setLoading(false)
+    })
+
+
+    return (() => {
+        setProducts()
+    })          
+}, [categoryId])
 
     return (
         <div>
