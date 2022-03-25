@@ -1,10 +1,10 @@
 import { useContext , useState , useRef} from 'react';
 import  CartContext from '../../context/CartContext';
 import ItemList from '../ItemList/ItemList';
-import { Link } from 'react-router-dom';
-import { writeBatch, getDoc , doc , } from 'firebase/firestore'
+import { NavLink} from 'react-router-dom';
+import { writeBatch, getDoc , doc , addDoc , collection } from 'firebase/firestore'
 import { firestoreDb } from '../../services/firebase/firebase'
-import { useNotificationServices } from '../../services/notification/NotificationService'
+import { useNotificationServices } from '../../services/notification/NotificationServices'
 const Cart = () => {
     
     const [processingOrder, setProcessingOrder] = useState(false)
@@ -94,13 +94,13 @@ const Cart = () => {
                     <button className="buttonCart" onClick={clearCart}>
                         Borrar todos los items
                     </button>
-                    <Link to="/"><button className="buttonCart">Seguir comprando</button></Link>
+                    <NavLink to="/"><button className="buttonCart">Seguir comprando</button></NavLink>
 
                 </div>
                  
             ) : (
                 <div className="listNotCart">
-                    <Link to="/"><button className="buttonCart">Volver a la tienda</button></Link>
+                    <NavLink to="/"><button className="buttonCart">Volver a la tienda</button></NavLink>
                     <h2>Tu carrito está vacío</h2>
                     <h3>¿No sabés qué comprar? ¡Miles de productos te esperan!</h3>
                 </div>

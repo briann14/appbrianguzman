@@ -1,5 +1,5 @@
 import './Item.css'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 const Item = ({product}) => {
    
     return (
@@ -21,7 +21,7 @@ const Item = ({product}) => {
                 
             </section>           
             <footer className='ItemFooter'>
-                <Link to ={`/detail/${product.id}`}>Ver detalle</Link>
+                <NavLink to ={`/detail/${product.id}`}>Ver detalle</NavLink>
             </footer>
         </article>
         </div>

@@ -1,9 +1,9 @@
 import { useState , useContext } from 'react';
-import { Link} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 import CartContext from '../../context/CartContext'
-import { useNotificationServices } from '../../services/notification/NotificationService'
+import { useNotificationServices } from '../../services/notification/NotificationServices'
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const [quantity, setQuantity] = useState(0)
@@ -53,7 +53,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             <footer className='ItemFooter'>
                 {
                     quantity > 0 ? 
-                        <Link to={'/cart'} className='Option'>Ir al carrito de compras</Link> :
+                        <NavLink to={'/cart'} className='Option'>Ir al carrito de compras</NavLink> :
                         <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
                 } 
             </footer>
