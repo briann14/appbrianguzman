@@ -7,6 +7,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Cart from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContext';
 import { NotificationServicesProvider } from './services/notification/NotificationServices';
+import FormContainer from './components/FormContainer/FormContainer';
 function App() {
   return (
   <div className = "app">
@@ -19,6 +20,7 @@ function App() {
         <Route path="/category/:categoryId" element={<ItemListContainer />} />
         <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
         <Route path="/cart" element={<Cart />} />
+        <Route path="/form" element={<FormContainer />}/>
      </Routes>
      
   </BrowserRouter>

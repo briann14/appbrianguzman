@@ -1,7 +1,11 @@
 .Success {
-    background-color: green;
+    background-color: #5acc5a;
+  color: #3cbd3c;
+  border-left: 6px solid #4CAF50;
 }
 
 .Error {
-    background-color: red;
+    background-color: #ffdddd;
+    color: #CD6D66;
+    border-left: 6px solid #f44336;
 }

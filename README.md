@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# APP PHONE STORE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es mi proyecto hecho totalmente en ReactJS sobre una store de celulares, tablets y accesorios
 
-## Available Scripts
+## instalacion y ejecucion
 
-In the project directory, you can run:
+Para ejecutar el programa debe seguir los siguientes pasos...
 
+### ` npm install`
+
+Con npm install instalará todas las dependencias necesarias para que la aplicación funcione
 ### `npm start`
+Con npm start ejecutara el programa si este no ejecuta entrar a [http: // localhost: 3000]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `Gif con funcionamiento de la app`
+[2022-03-29 18-11-30_Trim.gif]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### App Route
 
-### `npm test`
+- / -> ItemListContainer -> Es la ruta inicial que te llevara a ver todos los productos
+- / category /: categoryId -> ItemListContainer -> Es la ruta que te mostrara las categorias
+- / detail /: productId -> ItemDetailContainer -> Es la ruta que te mostrara los detalles del producto
+- / cart -> Cart -> Es la ruta que te mostrara el carrito de compras
+- / form -> FormContainer -> Es la ruta del formulario que tendras que completar para hacer la compra
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como funciona el proyecto?
 
-### `npm run build`
+### `ItemListContainer`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El ItemListContainer contiene la lista de todos los productos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `ItemDetailContainer`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+el ItemDetailContainer contiene los detalles de un producto en especifico
+### `Cart`
 
-### `npm run eject`
+El Cart contiene los productos que estan dentro del carrito de compras 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `FormContainer`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+El FormContainer contiene un formulario con validaciones para registrar los datos del usuario en una base de datos y poder finalizar la compra 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### `carpeta context`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+La carpeta context contiene el CartContext contiene la logica para sumar los productos, borrarlos , calcular precio,
 
-## Learn More
+### `Carpeta Services`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+En la carpeta firebase archivo firebase donde esta la logica para recibir los datos de la base de datos de firebase.
+En la carpeta notification esta NotifactionServices donde se encuentra las notificaciones que avisan al usuario si se añadio un producto , si se realizo la compra con su id o si hubo un error por falta de stock o un problema  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###  Que datos se tiene cuando se genera el pedido?
 
-### Code Splitting
+- buyer -> es un objeto con los datos del usuario que realizo el pedido
+- items -> es un objeto {item, count};
+- date -> dia y horario que se realizo el pedido
+- total -> el precio total
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Autor
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Brian Nahuel Guzman 

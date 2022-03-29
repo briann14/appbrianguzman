@@ -1,11 +1,8 @@
-import { Firestore, QuerySnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 import ItemList from '../ItemList/ItemList';
-
 import { getDocs, collection, query, where } from 'firebase/firestore'
-import { firestoreDb } from '../../services/firebase/firebase'
+import { db } from '../../services/firebase/firebase'
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -14,8 +11,8 @@ const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
         const collectionRef = categoryId ?
-        query(collection(firestoreDb, 'products'), where('category', '==', categoryId)) :
-        collection(firestoreDb, 'products')
+        query(collection(db, 'products'), where('category', '==', categoryId)) :
+        collection(db, 'products')
 
     getDocs(collectionRef).then(response => {
         const products = response.docs.map(doc => {

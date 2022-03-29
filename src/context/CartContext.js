@@ -52,6 +52,10 @@ export const CartContextProvider = ({ children }) => {
         setQuantity(0);
         
     }
+    const clearItems = () => {
+        setProducts([]);
+    }
+
 
     const getTotal = () => {
         let total = 0
@@ -77,6 +81,7 @@ export const CartContextProvider = ({ children }) => {
             removeItem,
             clearCart,
             getTotal,
+            clearItems,
             getQuantity
             }}>
             {children}

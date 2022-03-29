@@ -2,18 +2,18 @@ import { useState, createContext, useContext } from "react"
 import "./NotificationServices.css"
 const Notification = ({ message, severity }) => {
     const notificationStyles = {
-        position: 'absolute',
-        top: 100,
-        right: 5,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 'auto',
-        height: 'auto',
-        padding: '10px 20px 10px 20px',
-        color: 'white',
-        borderRadius: '10px'
-    }
+  color: 'white',
+  position: 'absolute',
+  top: 100,
+  right: 5,
+  padding: '10px 20px',
+  borderLeft: '6px solid #a7a7a7',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginTop: '15px',
+  marginBottom: '15',
+  }
 
     const config = true ?
     {
@@ -43,7 +43,7 @@ export const NotificationServicesProvider = ({children}) => {
         setSeverity(severity)
         setTimeout(() => {
             setMessage('')
-        }, 5000)
+        }, 2000)
     }
 
     return (

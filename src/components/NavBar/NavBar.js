@@ -12,7 +12,7 @@ const Navbar = () => {
           <ul className="cajasBotones">
                 <NavLink to="/category/celulares" className="Botones">CELULARES</NavLink>
                 <NavLink to="/category/tablet" className="Botones">TABLET</NavLink>
-                <NavLink to="/category/contacto" className="Botones">CONTACTO</NavLink>
+                <NavLink to="/category/accesorios" className="Botones">ACCESORIOS</NavLink>
           </ul>
           <div>
           <NavLink to="/cart">
